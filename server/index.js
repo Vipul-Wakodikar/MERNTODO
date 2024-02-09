@@ -49,5 +49,5 @@ app.get('/todo', async (req, res) => {
  })
 
 app.listen(process.env.PORT, () => {
-    console.log('Node connected')
+    console.log('Node connected', process.env.PORT)
 })
