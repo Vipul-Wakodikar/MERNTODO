@@ -19,7 +19,7 @@ connect()
 
 
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: '*',
     optionsSuccessStatus: 200,
 }))
 
@@ -32,6 +32,11 @@ app.get('/todo', async (req, res) => {
      const newTask = await Todo.create(req.body);
      res.status(201).json({newTask})
  })
+
+ app.post('/login', async (req,res) => {
+    // const newTask = await Todo.create(req.body);
+    res.status(201).json({message: "connected"})
+})
  
  app.delete('/todo/delete/:id', async(req,res)=>{
      const result = await Todo.findByIdAndDelete(req.params.id)
